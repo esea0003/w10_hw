@@ -17,7 +17,7 @@
             },
             "color": {
                 "field": "Status",
-                "scale": {"range": ["blue", "purple"]}
+                "scale": {"range": ["#23499d", "#32a2c0"]}
             }
         }
         },
