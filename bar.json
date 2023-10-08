@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/esea0003/3179_a2/main/top_last_cases.csv"
+    },
+    "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {
+                "aggregate": "average",
+                "field": "Adult_Mortality", "title": "Adult Mortality Rates"
+            },
+            "y": {
+                "field": "Country",
+                "sort": "-x"
+            },
+            "color": {
+                "field": "Status",
+                "scale": {"range": ["blue", "purple"]}
+            }
+        }
+        },
+        {
+          "mark": {"type": "rule", "color": "red"},
+          "encoding": {
+            "x": {
+              "aggregate": "average",
+              "field": "Adult_Mortality",
+              "type": "quantitative"
+              
+            }
+          }
+        },
+        {
+            "mark": {
+              "type": "text",
+              "dx": 30,
+              "dy": 60,
+              "baseline": "middle",
+              "align": "right",
+              "text": "Mean"
+            }
+        }
+      ],
+    "transform": [
+        {
+            "window": [{
+              "op": "rank",
+              "as": "rank"
+            }],
+            "sort": [{ "field": "Country", "order": "descending" }]
+          }]
+}
